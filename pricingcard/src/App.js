@@ -104,5 +104,29 @@ const ActionButton = styled.div`
 `;
 
 const PricingCard = () => {
+  const [features] = useState([
+    "10 GB Space",
+    "5 Domain Names",
+    "Unlimited Mail"
+  ]);
 
+  return (
+    <Card>
+      <BackgroundSquare />
+      <Content>
+        <Icon className="icofont-paper-plane" />
+        <PlanTitle>Basic</PlanTitle>
+        <PlanCost>$25</PlanCost>
+        <FeatureList>
+          {features.map(f => (
+            <FeatureListItem>
+              <i className="icofont-check" />
+              <span>{f}</span>
+            </FeatureListItem>
+          ))}
+        </FeatureList>
+        <ActionButton>Order Now</ActionButton>
+      </Content>
+    </Card>
+  ); 
 };
