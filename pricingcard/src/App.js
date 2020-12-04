@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
-import '../src/assets/css/icofont.min.css';
+import plane from './paperplane.svg';
+import check from './check.svg';
 
 const gradient = degs => css`
   background: 
@@ -49,7 +50,7 @@ const Card = styled.div`
   &:hover::after { opacity: 1; }
 `;
 
-const Content = style.div`
+const Content = styled.div`
   position: relative;
   z-index: 3;
   display: flex;
@@ -89,7 +90,7 @@ const FeatureListItem = styled.div`
   & > i { font-size: 20px; margin-right: 0.5rem; }
 `;
 
-const ActionButton = styled.div`
+const ActionButton = styled.button`
   flex: 0 0 auto;
   height: 40px;
   padding: 0 2 rem;
@@ -114,13 +115,13 @@ const PricingCard = () => {
     <Card>
       <BackgroundSquare />
       <Content>
-        <Icon className="icofont-paper-plane" />
+        <Icon><img src={plane} alt="paperplane" /></Icon>
         <PlanTitle>Basic</PlanTitle>
         <PlanCost>$25</PlanCost>
         <FeatureList>
           {features.map(f => (
             <FeatureListItem>
-              <i className="icofont-check" />
+              <img src={check} width="20" height="20" color="white" alt="icofont-check" />
               <span>{f}</span>
             </FeatureListItem>
           ))}
@@ -130,3 +131,5 @@ const PricingCard = () => {
     </Card>
   ); 
 };
+
+export default PricingCard;
